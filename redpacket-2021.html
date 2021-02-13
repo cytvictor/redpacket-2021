@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+    <head>
+        <title>2021解谜红包-农历辛丑年新年快乐！ | Challenge 1</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    </head>
+    <body>
+        <h1>Victor's Red packet challenge 1</h1>
+        <p>
+            互联网（“Internet”）由词“互联”（Inter）和“网络”（Network）组成。而扮演“互联”作用的也就是<b>“路由器”（Router）</b>。
+            <br><br>
+            根据<b>合理</b>推测，你的请求经过了 <code id="visited-routers">Loading</code> 个路由器到达我，且剩余可被传播的距离为 <code id="remaining-routers">Loading</code> 。如果可以让剩余的距离超过 200 ，我就将红包密码告诉你！
+            <br><br>
+            完成解谜后，支付宝红包码将显示在 <span id="rpCode">这里</span>
+            <br><br>
+            （若显示 `Loading`，则最长需等待 15 秒。15 秒后仍未显示的，请尝试刷新页面）
+        </p>
+    </body>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $.get({
+            url: "http://101.32.26.208:8089",
+            success: function (res) {
+                let d = JSON.parse(res);
+                document.getElementById("visited-routers").innerText = d.visited_routers;
+                document.getElementById("remaining-routers").innerText = d.remaining_routers;
+
+                if (d.rpCode) {
+                    document.getElementById("rpCode").innerText = d.rpCode
+                }
+
+            }
+        })
+    </script>
+</html>
