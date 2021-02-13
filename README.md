@@ -2,6 +2,8 @@
 
 祝神仙们牛年牛气冲天、 offer 拿满、顶会 n 篇~
 
+Blog link: https://i.urox.cn/2021-02-11-happy-lunar-new-year-2021.html
+
 ## 题面
 ![challenge-screenshot](challenge-screenshot.png)
 
