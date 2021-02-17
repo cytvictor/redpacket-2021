@@ -18,18 +18,18 @@ Blog link: https://i.urox.cn/2021-02-11-happy-lunar-new-year-2021.html
 
 背景：在 IP 网络中，数据的发送方会在 IP 报文头部设置 TTL （Time-To-Live）字段。
 
-IP 报文在客户端发出后，经过每一个 IP 路由节点[^ip_router]时，路由设备会将该报文中的 TTL 字段减去 1，接着：
+IP 报文在客户端发出后，经过每一个 IP 路由节点\*时，路由设备会将该报文中的 TTL 字段减去 1，接着：
 - 如果减去 1 后 TTL 大于 0，则按既定规则将报文转发至下一台连接的路由器
 - 如果减去 1 后 TTL 等于 0，则丢弃该包
 
 
 
-参考 这篇文章 [^default_ttl_values] ，Windows 7 ~ Windows 10 的默认 TTL 为 128，常见 Linux/Unix-like (incl. Android, macOS) 发行版本为 64。仅有少数网络设备的默认 TTL 为 256。
+参考 [这篇文章](https://subinsb.com/default-device-ttl-values/) ，Windows 7 ~ Windows 10 的默认 TTL 为 128，常见 Linux/Unix-like (incl. Android, macOS) 发行版本为 64。仅有少数网络设备的默认 TTL 为 256。
 
 假定客户端的请求需要经过 10 个路由节点到达网站服务器。
 
 - Windows 下请求的 IP 报文到达网站服务器时 TTL 剩余 `(64-10)=54`
-- Linux 下请求的 IP 保温到达网站服务器时 TTL 剩余 `(128-10)=118` 
+- Linux 下请求的 IP 报文到达网站服务器时 TTL 剩余 `(128-10)=118` 
 
 因此，考虑一般只会通过 PC 或 macOS 桌面浏览器打开网页，故到达网站服务器时 IP 报文的 TTL 通常不会大于 200。
 
@@ -72,7 +72,5 @@ Source Code: [main.go](main.go)
   ```
 
 
-
-[^default_ttl_values]: https://subinsb.com/default-device-ttl-values/
-[^ip_router]: 当经过 MPLS 转发面 P 路由器时，IP 报文的 TTL 可能不会降低；因此强调为“IP路由节点”
+*: 当经过 MPLS 转发面 P 路由器时，IP 报文的 TTL 可能不会降低；因此强调为“IP路由节点”
 
